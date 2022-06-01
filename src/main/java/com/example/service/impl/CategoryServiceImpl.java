@@ -14,7 +14,7 @@ public class CategoryServiceImpl {
 		return categoryDao.findAll();
 	}
 
-	public List<Category> findByKeyword(String keyword) {
-		return categoryDao.findByKeyword(keyword);
-	}
+//	public List<Category> findByKeyword(String keyword) {
+//		return categoryDao.findByKeyword(keyword);
+//	}
 }

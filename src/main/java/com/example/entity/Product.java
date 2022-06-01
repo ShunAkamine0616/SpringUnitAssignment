@@ -4,116 +4,99 @@ import java.sql.Timestamp;
 
 public class Product {
 	private Integer id;
-	private Integer product_id;
-	private Integer category_id;
-	//	private String category_name;
-	private Category category; // 追加
-	private String name;
+	private Integer productId;
+	private Category category; 
+	private Integer categoryId;
+	private String productName;
 	private Integer price;
-	private String image_path;
 	private String description;
-//	private SimpleDateFormat create_at;
-//	private SimpleDateFormat update_at;
-//	private String create_at;
-//	private String update_at;
-	private Timestamp create_at;
-	private Timestamp update_at;
+	private Timestamp createdAt;
+	private Timestamp updatedAt;
 	
-	public Product() {
 
-	}
 
-	public Product(String name, Integer price) {
-		this.name = name;
-		this.price = price;
-	}
-
-	public Product(Integer product_id, String name, Integer price) {
-		this.product_id = product_id;
-		this.name = name;
-		this.price = price;
-	}
-
-	public Product(Integer product_id, Integer category_id, 
-			String name, Integer price,  String description, Timestamp create_at) {
-		this.product_id = product_id;
-		this.category_id = category_id;
-//		this.category = new Category(category_id, category_name);
-		this.name = name;
+//	public Product(Integer productId, Integer categoryId, 
+//			String name, Integer price,  String description, Timestamp createdAt) {
+//		this.productId = productId;
+//		this.categoryId = categoryId;
+////		this.category = new Category(categoryId, category_name);
+//		this.name = name;
+//		this.price = price;
+//		this.description = description;
+//		this.createdAt = createdAt;
+//	}
+//	
+//	public Product(Integer productId, Integer categoryId, 
+//			String productName, Integer price,  String description, Timestamp createdAt, Timestamp updatedAt) {
+//		this.productId = productId;
+//		this.categoryId = categoryId;
+////		this.category = new Category(categoryId, category_name);
+//		this.productName = productName;
+//		this.price = price;
+//		this.description = description;
+//		this.createdAt = createdAt;
+//		this.updatedAt = updatedAt;
+//	}
+	
+	// 登録
+	public Product(Integer productId, Integer categoryId, 
+			String productName, Integer price,  String description, Timestamp createdAt) {
+//		this.id = id;
+		this.productId = productId;
+		this.categoryId = categoryId;
+//		this.category = new Category(categoryId, category_name);
+		this.productName = productName;
 		this.price = price;
 		this.description = description;
-		this.create_at = create_at;
+		this.createdAt = createdAt;
 	}
 	
-	public Product(Integer product_id, Integer category_id, 
-			String name, Integer price,  String description, Timestamp create_at, Timestamp update_at) {
-		this.product_id = product_id;
-		this.category_id = category_id;
-//		this.category = new Category(category_id, category_name);
-		this.name = name;
+	// 更新
+	public Product(Integer productId, Integer categoryId, 
+			String productName, Integer price,  String description, Timestamp createdAt, Timestamp updatedAt) {
+//		this.id = id;
+		this.productId = productId;
+		this.categoryId = categoryId;
+//		this.category = new Category(categoryId, category_name);
+		this.productName = productName;
 		this.price = price;
 		this.description = description;
-		this.create_at = create_at;
-		this.update_at = update_at;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
 	}
 	
-	public Product(Integer id, Integer product_id, Integer category_id, 
-			String name, Integer price,  String description, Timestamp create_at) {
+
+	public Product(Integer productId, Integer categoryId, String category_name,
+			String productName, Integer price,  String description, Timestamp createdAt) {
+		this.productId = productId;
+		this.categoryId = categoryId;
+		this.category = new Category(categoryId, category_name);
+		this.productName = productName;
+		this.price = price;
+		this.description = description;
+		this.createdAt = createdAt;
+	}
+	
+	public Product(Integer id, Integer productId, Integer categoryId, String category_name,
+			String productName, Integer price,  String description, Timestamp createdAt, Timestamp updatedAt) {
 		this.id = id;
-		this.product_id = product_id;
-		this.category_id = category_id;
-//		this.category = new Category(category_id, category_name);
-		this.name = name;
+		this.productId = productId;
+		this.categoryId = categoryId;
+		this.category = new Category(categoryId, category_name);
+		this.productName = productName;
 		this.price = price;
 		this.description = description;
-		this.create_at = create_at;
-	}
-	
-	public Product(Integer id, Integer product_id, Integer category_id, 
-			String name, Integer price,  String description, Timestamp create_at, Timestamp update_at) {
-		this.id = id;
-		this.product_id = product_id;
-		this.category_id = category_id;
-//		this.category = new Category(category_id, category_name);
-		this.name = name;
-		this.price = price;
-		this.description = description;
-		this.create_at = create_at;
-		this.update_at = update_at;
-	}
-	
-
-	public Product(Integer product_id, Integer category_id, String category_name,
-			String name, Integer price,  String description) {
-		this.product_id = product_id;
-		this.category_id = category_id;
-		this.category = new Category(category_id, category_name);
-		this.name = name;
-		this.price = price;
-		this.description = description;
-	}
-	
-	public Product(Integer id, Integer product_id, Integer category_id, String category_name,
-			String name, Integer price,  String description, Timestamp create_at, Timestamp update_at) {
-		this.id = id;
-		this.product_id = product_id;
-		this.category_id = category_id;
-		this.category = new Category(category_id, category_name);
-		this.name = name;
-		this.price = price;
-		this.description = description;
-		this.create_at = create_at;
-		this.update_at = update_at;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
 	}
 
-	//	
-	//	public String getCategory_name() {
-	//		return category_name;
-	//	}
-	//
-	//	public void setCategory_name(String category_name) {
-	//		this.category_name = category_name;
-	//	}
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
 
 	public Category getCategory() {
 		return category;
@@ -131,36 +114,28 @@ public class Product {
 		this.id = id;
 	}
 
-	public Integer getProduct_id() {
-		return product_id;
+	public Integer getProductId() {
+		return productId;
 	}
 
-	public void setProduct_id(Integer product_id) {
-		this.product_id = product_id;
+	public void setProductId(Integer productId) {
+		this.productId = productId;
+	}
+	
+	public Integer getCategoryId() {
+		return categoryId;
 	}
 
-	public Integer getCategory_id() {
-		return category_id;
-	}
-
-	public void setCategory_id(Integer category_id) {
-		this.category_id = category_id;
-	}
-
-	public String getC_name() {
-		return name;
-	}
-
-	public void setC_name(String name) {
-		this.name = name;
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	public String getName() {
-		return name;
+		return productName;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.productName = name;
 	}
 
 	public Integer getPrice() {
@@ -170,15 +145,7 @@ public class Product {
 	public void setPrice(Integer price) {
 		this.price = price;
 	}
-
-	public String getImage_path() {
-		return image_path;
-	}
-
-	public void setImage_path(String image_path) {
-		this.image_path = image_path;
-	}
-
+	
 	public String getDescription() {
 		return description;
 	}
@@ -187,19 +154,35 @@ public class Product {
 		this.description = description;
 	}
 
-	public Timestamp getCreate_at() {
-		return create_at;
+	public Timestamp getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setCreate_at(Timestamp create_at) {
-		this.create_at = create_at;
+	public void setCreatedAt(Timestamp createdAt) {
+		this.createdAt = createdAt;
 	}
 
-	public Timestamp getUpdate_at() {
-		return update_at;
+	public Timestamp getUpdatedAt() {
+		return updatedAt;
 	}
 	
-	public void setUpdate_at(Timestamp update_at) {
-		this.update_at = update_at;
+	public void setUpdatedAt(Timestamp updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+	
+	// 追加
+	public void setCategoryId(int categoryId) {
+		if(this.category == null) {
+			this.category = new Category();
+		}
+		category.setId(categoryId);
+	}
+	
+	// 追加
+	public void setCategoryName(String categoryName) {
+		if(this.category == null) {
+			this.category = new Category();
+		}
+		category.setName(categoryName);
 	}
 }

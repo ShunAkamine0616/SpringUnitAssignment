@@ -22,7 +22,7 @@ public class ProductServiceImpl implements ProductService {
         return productDao.findById(id);
     }
     public List<Product> findByKeyword(String keyword, String sort) {
-        return productDao.findAll(sort);
+        return productDao.findByKeyword(keyword, sort);
     }
     public void insert(Product product) {
         productDao.register(product);

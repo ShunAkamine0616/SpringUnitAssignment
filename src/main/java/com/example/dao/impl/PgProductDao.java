@@ -31,7 +31,7 @@ public class PgProductDao implements ProductDao {
 		if(!Utility.isNullOrEmpty(sort)) {
 			column = sort;
 		}
-		String SQL_SELECT_ALL = "SELECT * FROM (SELECT product_id, category_id, p.name p_name, price, c.name c_name, description, p.created_at created_at FROM categories c JOIN products p ON c.id = p.category_id) a"
+		String SQL_SELECT_ALL = "SELECT * FROM (SELECT product_id, category_id, p.name product_name, price, c.name category_name, description, p.created_at created_at FROM categories c JOIN products p ON c.id = p.category_id) a"
 				+ " ORDER BY " + column;
 	       String sql = SQL_SELECT_ALL;
 	        List<Product> resultList = jdbcTemplate2.query(sql, new BeanPropertyRowMapper<Product>(Product.class));
@@ -62,8 +62,8 @@ public class PgProductDao implements ProductDao {
 			column = sort;
 		}
 		String SQL_SELECT_SEARCH_WHERE_KEYWORD = "SELECT * FROM \r\n"
-				+ " (SELECT product_id, category_id, p.name p_name, price, c.name c_name, description, p.created_at created_at, p.updated_at updated_at FROM categories c JOIN products p ON c.id = p.category_id) a\r\n"
-				+ "WHERE c_name LIKE :c_name OR p_name LIKE :p_name"
+				+ " (SELECT product_id, category_id, p.name product_name, price, c.name category_name, description, p.created_at created_at, p.updated_at updated_at FROM categories c JOIN products p ON c.id = p.category_id) a\r\n"
+				+ "WHERE category_name LIKE :c_name OR product_name LIKE :p_name"
 				+ " ORDER BY " + column;
 		String sql = SQL_SELECT_SEARCH_WHERE_KEYWORD;
 
@@ -78,12 +78,12 @@ public class PgProductDao implements ProductDao {
 	public void update(Integer product_id, Product product) {
 		 String sql = SQL_UPDATE_PRODUCT;
 	        MapSqlParameterSource param = new MapSqlParameterSource();
-	        param.addValue("product_id", product.getProduct_id());
-	        param.addValue("category_id", product.getCategory_id());
+	        param.addValue("product_id", product.getProductId());
+	        param.addValue("category_id", product.getCategoryId());
 	        param.addValue("name", product.getName());
 	        param.addValue("price", product.getPrice());
 	        param.addValue("description", product.getDescription());
-	        param.addValue("updated_at", product.getCreate_at());
+	        param.addValue("updated_at", product.getCreatedAt());
 	        param.addValue("id", product_id);
 	        jdbcTemplate.update(sql, param);
 	}
@@ -98,12 +98,12 @@ public class PgProductDao implements ProductDao {
 	public void register(Product product) {
 		   String sql = SQL_INSERT_PRODUCT;
 	        MapSqlParameterSource param = new MapSqlParameterSource();
-	        param.addValue("product_id", product.getProduct_id());
-	        param.addValue("category_id", product.getCategory_id());
+	        param.addValue("product_id", product.getProductId());
+	        param.addValue("category_id", product.getCategoryId());
 	        param.addValue("name", product.getName());
 	        param.addValue("price", product.getPrice());
 	        param.addValue("description", product.getDescription());
-	        param.addValue("created_at", product.getCreate_at());
+	        param.addValue("created_at", product.getCreatedAt());
 	        
 	        jdbcTemplate.update(sql, param);
 	}

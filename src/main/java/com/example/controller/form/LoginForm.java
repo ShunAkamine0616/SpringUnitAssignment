@@ -1,13 +1,12 @@
 package com.example.controller.form;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 public class LoginForm {
 
 	@NotBlank
 	private String loginId;
 	@NotBlank
-    private String pass;
+    private String password;
 	
 	public String getLoginId() {
 		return loginId;
@@ -15,20 +14,10 @@ public class LoginForm {
 	public void setLoginId(String loginId) {
 		this.loginId = loginId;
 	}
-	public String getPass() {
-		return pass;
+	public String getPassword() {
+		return password;
 	}
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public Integer getPrice() {
-		return price;
-	}
-	public void setPrice(Integer price) {
-		this.price = price;
-	}
-	@NotNull
-    private Integer price;
-    
-    
 }
