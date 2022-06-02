@@ -4,13 +4,13 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 public class InsertForm {
 
-	@NotBlank
+	@NotNull
 	private Integer productId;
 	@NotBlank
     private String productName;
 	@NotNull
     private Integer price;
-	@NotBlank
+	@NotNull
 	private Integer categoryId;
 	private String description;
 	

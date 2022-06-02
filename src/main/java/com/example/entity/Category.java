@@ -1,58 +1,69 @@
 package com.example.entity;
 
 public class Category {
-	private Integer id;
-	private String name;
-	private Integer created_at;
-	private Integer updated_at;
+	private Integer categoryId;
+	private String categoryName;
+	private Integer createdAt;
+	private Integer updatedAt;
 	
 	public Category() {
 		
 	}
 	
-	public Category(Integer id, String name, Integer created_at) {
-		this.id = id;
-		this.name = name;
-		this.created_at = created_at;
+	public Category(Integer categoryId, String categoryName, Integer createdAt) {
+		this.categoryId = categoryId;
+		this.categoryName = categoryName;
+		this.createdAt = createdAt;
 	}
 	
-	public Category(Integer id, String name) {
-		this.id = id;
-		this.name = name;
+	public Category(Integer categoryId, String categoryName) {
+		this.categoryId = categoryId;
+		this.categoryName = categoryName;
 	}
 	
-	public Category(String name, Integer created_at) {
-		this.name = name;
-		this.created_at = created_at;
+	public Category(String categoryName, Integer createdAt) {
+		this.categoryName = categoryName;
+		this.createdAt = createdAt;
 	}
 	
-	public Category(Integer id, String name, Integer created_at, Integer updated_at) {
-		this.id = id;
-		this.name = name;
-		this.created_at = created_at;
-		this.updated_at = updated_at;
+	public Category(Integer categoryId, String categoryName, Integer createdAt, Integer updatedAt) {
+		this.categoryId = categoryId;
+		this.categoryName = categoryName;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+
+	public Integer getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+	public Integer getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Integer createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public Integer getUpdatedAt() {
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Integer updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Integer getCreated_at() {
-		return created_at;
-	}
-	public void setCreated_at(Integer created_at) {
-		this.created_at = created_at;
-	}
-	public void setUpdated_at(Integer updated_at) {
-		this.updated_at = updated_at;
-	}
 	
 }

@@ -5,12 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.example.dao.CategoryDao;
 import com.example.entity.Category;
 
+@Repository
 public class PgCategoryDao implements CategoryDao {
-	private static final String SQL_SELECT_ALL = "SELECT * FROM categories";
+	private static final String SQL_SELECT_ALL = "SELECT id category_id, name category_name FROM categories";
 //	private static final String SQL_INSERT_USER = "INSERT INTO products(product_name, price) VALUES(?, ?)";
 //	private static final String SQL_SELECT_SEARCH_WHERE_KEYWORD = "SELECT * FROM \r\n"
 //			+ " (SELECT product_id, category_id, p.name p_name, price, c.name c_name, description FROM categories c JOIN products p ON c.id = p.category_id) a\r\n"

@@ -44,12 +44,12 @@
 				</c:if>
 			</p>
 
-			<form:form action="insert" method="get">
+			<form:form action="insert" method="get" modelAttribute="insert">
 				<fieldset class="label-130">
 					<div>
 						<label class="required"><fmt:message
 								key="form.lbl.productId" /></label>
-						<form:input type="text" name="productId" class="base-text"
+						<form:input type="text" path="productId" class="base-text"
 							value="${productId}" />
 						<span class="error"> <c:if test="${not empty idErrMsg}">
 								<span>${fn:escapeXml(idErrMsg)}</span>
@@ -59,7 +59,7 @@
 					<div>
 						<label class="required"><fmt:message
 								key="form.lbl.productName" /></label>
-						<form:input type="text" name="productName" class="base-text"
+						<form:input type="text" path="productName" class="base-text"
 							value="${productName}" />
 						<span class="error"><c:if test="${not empty nameErrMsg}">
 								<span>${fn:escapeXml(nameErrMsg)}</span>
@@ -67,7 +67,7 @@
 					</div>
 					<div>
 						<label class="required"><fmt:message key="form.lbl.price" /></label>
-						<form:input type="text" name="price" class="base-text"
+						<form:input type="text" path="price" class="base-text"
 							value="${price}" />
 						<span class="error"><c:if test="${not empty priceErrMsg}">
 								<span>${fn:escapeXml(priceErrMsg)}</span>
@@ -76,14 +76,14 @@
 					<div class="select_block">
 						<label class="required"><fmt:message
 								key="form.lbl.category" /></label>
-						<form:select path="category" class="base-text">
+						<form:select path="categoryId" class="base-text">
 							<form:options items="${categoryList}" itemLabel="categoryName"
 								itemValue="categoryId" />
 						</form:select>
 					</div>
 					<div>
 						<label><fmt:message key="form.lbl.description" /></label>
-						<textarea name="description" class="base-text"></textarea>
+						<form:textarea path="description" class="base-text"></form:textarea>
 					</div>
 					<!-- 					<div> -->
 					<!-- 						<label>画像</label> <input type="file" name="file"> <span -->
@@ -93,16 +93,16 @@
 					<!-- 					</div> -->
 				</fieldset>
 				<div class="btns">
-					<form:button type="button" onclick="openModal()" class="basic_btn">登録</form:button>
-					<input type="button" onclick="location.href='./menu.jsp'"
+					<button type="button" onclick="openModal()"  name="insert" class="basic_btn">登録</button>
+					<input type="button" onclick="location.href='back'"
 						value="戻る" class="cancel_btn">
 				</div>
 				<div id="modal">
 					<p class="modal_message">登録しますか？</p>
 					<div class="btns">
-						<form:button type="submit" class="basic_btn">登録</form:button>
-						<form:button type="button" onclick="closeModal()"
-							class="cancel_btn">キャンセル</form:button>
+						<form:button type="submit" name="insert" class="basic_btn">登録</form:button>
+						<button type="button" name="cancel" onclick="closeModal()"
+							class="cancel_btn">キャンセル</button>
 					</div>
 				</div>
 			</form:form>

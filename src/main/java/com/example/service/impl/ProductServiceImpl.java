@@ -18,8 +18,8 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findAll(String sort) {
         return productDao.findAll(sort);
     }
-    public Product findById(Integer id) {
-        return productDao.findById(id);
+    public Product findById(Integer product_id) {
+        return productDao.findById(product_id);
     }
     public List<Product> findByKeyword(String keyword, String sort) {
         return productDao.findByKeyword(keyword, sort);

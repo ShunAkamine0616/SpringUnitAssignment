@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -22,13 +22,14 @@
 
 		<div class="header">
 			<h1 class="site_logo">
-				<a href="menu.jsp"><fmt:message key="site_logo"/></a>
+				<a href="menu.jsp"><fmt:message key="site_logo" /></a>
 			</h1>
 			<div class="user">
 				<p class="user_name">${user.name}さん、こんにちは</p>
 				<form class="logout_form" action="logout" method="get">
 					<button class="logout_btn" type="submit">
-						<img src="images/ドアアイコン.png"><fmt:message key="form.lbl.logout"/>
+						<img src="images/ドアアイコン.png">
+						<fmt:message key="form.lbl.logout" />
 					</button>
 				</form>
 			</div>
@@ -37,7 +38,11 @@
 		<hr>
 		<c:if test="${user.role == 1}">
 			<div class="btn">
-				<a class="basic_btn regist" href="insertInput"><fmt:message key="form.lbl.signup"/></a>
+				<form action="InsertController" method="get">
+					<button class="basic_btn regist" name="insert">
+						<fmt:message key="form.lbl.signup" />
+					</button>
+				</form>
 			</div>
 		</c:if>
 		<p>
@@ -82,9 +87,9 @@
 						<td>${product.getProductId()}</td>
 						<td>${product.getName()}</td>
 						<td>${product.getPrice()}</td>
-						<td>${product.getCategory().getName()}</td>
+						<td>${product.getCategory().getCategoryName()}</td>
 						<td><a class="detail_btn"
-							href="DetailServlet?product_id=${product.getProductId()}">詳細</a></td>
+							href="detail?product_id=${product.getProductId()}">詳細</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

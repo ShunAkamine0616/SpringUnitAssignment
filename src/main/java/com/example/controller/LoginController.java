@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.controller.form.LoginForm;
+import com.example.entity.Category;
 import com.example.entity.Product;
 import com.example.entity.User;
+import com.example.service.CategoryService;
 import com.example.service.ProductService;
 import com.example.service.UserService;
 
@@ -27,6 +29,8 @@ public class LoginController {
 	HttpSession session;
 	@Autowired
 	UserService userService;
+	@Autowired
+	CategoryService categoryService;
 	@Autowired
 	MessageSource messageSource;
 	@Autowired
@@ -52,9 +56,17 @@ public class LoginController {
 			return "index";
 		} else {
 			List<Product> productList = productService.findAll("product_id");
+			List<Category> categoryList = categoryService.find();
 			session.setAttribute("productList", productList);
+			session.setAttribute("categoryList", categoryList);
 			session.setAttribute("user", user);
 			return "menu";
 		}
+	}
+	
+	@RequestMapping("back")
+	public String index(Model model) {
+		System.out.println("aaaaaaaa");
+		return "menu";
 	}
 }

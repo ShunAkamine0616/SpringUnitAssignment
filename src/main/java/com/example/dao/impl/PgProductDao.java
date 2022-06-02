@@ -41,7 +41,7 @@ public class PgProductDao implements ProductDao {
 
 	public Product findById(Integer product_id) {
 		String SQL_SELECT_SEARCH_WHERE_PRODUCT_ID = "SELECT * FROM \r\n"
-				+ " (SELECT p.id, product_id, category_id, p.name p_name, price, c.name c_name, description, p.created_at created_at, p.updated_at updated_at FROM categories c JOIN products p ON c.id = p.category_id) a\r\n"
+				+ " (SELECT p.id, product_id, category_id, p.name product_name, price, c.name category_name, description, p.created_at created_at, p.updated_at updated_at FROM categories c JOIN products p ON c.id = p.category_id) a\r\n"
 				+ "WHERE product_id = :product_id";
 		String sql = SQL_SELECT_SEARCH_WHERE_PRODUCT_ID;
 

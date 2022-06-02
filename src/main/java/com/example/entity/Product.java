@@ -37,6 +37,9 @@ public class Product {
 //		this.createdAt = createdAt;
 //		this.updatedAt = updatedAt;
 //	}
+	public Product() {
+		
+	}
 	
 	// 登録
 	public Product(Integer productId, Integer categoryId, 
@@ -175,7 +178,7 @@ public class Product {
 		if(this.category == null) {
 			this.category = new Category();
 		}
-		category.setId(categoryId);
+		category.setCategoryId(categoryId);
 	}
 	
 	// 追加
@@ -183,6 +186,6 @@ public class Product {
 		if(this.category == null) {
 			this.category = new Category();
 		}
-		category.setName(categoryName);
+		category.setCategoryName(categoryName);
 	}
 }

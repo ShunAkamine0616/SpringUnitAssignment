@@ -31,13 +31,13 @@ public class InsertController {
 	@Autowired
 	ProductService productService;
 	
-	@RequestMapping("/insertInput")
+	@RequestMapping(value="InsertController", method = RequestMethod.GET)
 	public String index(@ModelAttribute("insert") InsertForm insertform, Model model) {
 		System.out.println("bbbbbbb");
 		return "insert";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "insert", method = RequestMethod.GET)
 	public String result(@Validated @ModelAttribute("insert") InsertForm insertform, BindingResult bindingResult, Model model) {
 		// 入力チェック
 		if (bindingResult.hasErrors()) {
@@ -49,9 +49,14 @@ public class InsertController {
 			session.setAttribute("insertErrMsg", "商品IDが重複しています");
 			return "insert";
 		}
-		
+
 		Date nowDate = new Date();
 		Timestamp timestamp = new Timestamp(nowDate.getTime());
+		session.setAttribute("productId", insertform.getProductId());
+		session.setAttribute("productName", insertform.getProductName());
+		session.setAttribute("price", insertform.getPrice());
+		session.setAttribute("description", insertform.getDescription());
+		
 		Product product = new Product(insertform.getProductId(), insertform.getCategoryId(), 
 				insertform.getProductName(), insertform.getPrice(), insertform.getDescription(), timestamp);
 

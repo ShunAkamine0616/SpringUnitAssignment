@@ -3,8 +3,10 @@ package com.example.dao;
 
 import java.util.List;
 
-import com.example.entity.Category;
+import org.springframework.stereotype.Service;
 
+import com.example.entity.Category;
+@Service
 public interface CategoryDao {
 
 	public List<Category> findAll();
