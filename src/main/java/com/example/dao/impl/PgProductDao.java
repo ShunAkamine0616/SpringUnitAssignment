@@ -80,7 +80,7 @@ public class PgProductDao implements ProductDao {
 	        MapSqlParameterSource param = new MapSqlParameterSource();
 	        param.addValue("product_id", product.getProductId());
 	        param.addValue("category_id", product.getCategoryId());
-	        param.addValue("name", product.getName());
+	        param.addValue("product_name", product.getName());
 	        param.addValue("price", product.getPrice());
 	        param.addValue("description", product.getDescription());
 	        param.addValue("updated_at", product.getCreatedAt());
