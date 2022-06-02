@@ -47,4 +47,23 @@ public class SearchResultController {
 		} 
 		return "menu";
 	}
+
+	@GetMapping("/searchByKeyword")
+	public String searchByKeyword(@RequestParam("keyword") String keyword, @RequestParam("sort") String sort, Model model) {
+
+		List<Product> productList = null;
+		System.out.println("keyword = " + keyword);
+		productList = productService.findByKeyword(keyword, sort);
+		//		categoryList = cService.findByKeyword(keyword);
+		if(productList.size() == 0) {
+			model.addAttribute("successMsg", "検索条件と十分に一致する結果が見つかりません");
+		} else {
+			//			model.removeAttribute("successMsg");
+		}
+		model.addAttribute("productList", productList);
+		//		model.setAttribute("categoryList", categoryList);
+
+		return "menu";
+
+	}
 }

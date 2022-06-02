@@ -62,7 +62,7 @@
 			</div>
 			<div class="order">
 				<select class="base-text" name="sort"
-					onChange="location.href='SearchResult?sort=' + value + '&keyword=' + document.getElementById('keyword').value">
+					onChange="location.href='searchByKeyword?sort=' + value + '&keyword=' + document.getElementById('keyword').value">
 					<option>並び替え</option>
 					<option value="product_id">商品ID</option>
 					<option value="category_id">カテゴリ</option>
