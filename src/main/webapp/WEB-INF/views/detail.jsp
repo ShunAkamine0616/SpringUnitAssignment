@@ -33,7 +33,7 @@
 			<div class="img_block">
 				<img src="images/マッキー.png" class="product_img"><br>
 			</div>
-			<form action="DeleteServlet?product_id=${product.getProductId()}"
+			<form action="delete?productId=${product.getProductId()}"
 				method="get">
 				<fieldset class="label-130 product_block">
 					<p class="error">
@@ -70,7 +70,7 @@
 						<!--             <input type="submit" onclick="openModal()" value="削除" class="basic_btn" name="btn"> -->
 						<!--             <input type="submit" onclick="location.href='./updateInput.html'" value="編集" class="basic_btn" name="btn"> -->
 						<!--             <input type="submit" onclick="location.href='./menu.html'" value="戻る" class="cancel_btn" name="btn"> -->
-						<c:if test="${role == 1}">
+						<c:if test="${user.role == 1}">
 							<input type="button" onclick="openModal()" value="削除"
 								class="basic_btn" name="btn">
 							<input type="button"

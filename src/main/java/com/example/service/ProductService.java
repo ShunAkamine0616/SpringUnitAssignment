@@ -11,5 +11,5 @@ public interface ProductService {
     public List<Product> findByKeyword(String keyword, String sort);
     public void insert(Product product);
     public void update(Integer product_id, Product product);
-    public void delete(Integer product_id);
+    public int delete(Integer product_id);
 }
