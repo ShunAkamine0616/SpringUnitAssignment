@@ -20,7 +20,7 @@
 		</h1>
 		<div class="user">
 			<p class="user_name">佐藤さん、こんにちは</p>
-			<form class="logout_form" action="Logout" method="get">
+			<form class="logout_form" action="logout" method="get">
 				<button class="logout_btn" type="submit">
 					<img src="images/ドアアイコン.png">ログアウト
 				</button>

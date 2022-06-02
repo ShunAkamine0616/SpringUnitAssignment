@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
@@ -16,7 +18,7 @@
 		</h1>
 		<div class="user">
 			<p class="user_name">佐藤さん、こんにちは</p>
-			<form class="logout_form" action="Logout" method="get">
+			<form class="logout_form" action="logout" method="get">
 				<button class="logout_btn" type="submit">
 					<img src="images/ドアアイコン.png">ログアウト
 				</button>
@@ -34,42 +36,44 @@
 				</c:if>
 			</p>
 
-			<form action="UpdateServlet" method="get">
+			<form:form action="update" method="get" modelAttribute="update">
 				<fieldset class="label-130">
 					<div>
-						<label>商品ID</label> <input type="text" name="productId"
-							value="${product.product_id}" class="base-text"> <span
-							class="error"><c:if test="${not empty idErrMsg}">
+						<label><fmt:message key="form.lbl.productId" /></label>
+						<form:input type="text" path="productId" class="base-text"
+							value="${product.productId}" />
+						<span class="error"><c:if test="${not empty idErrMsg}">
 								<span>${fn:escapeXml(idErrMsg)}</span>
 							</c:if></span>
 					</div>
 					<div>
-						<label>商品名</label> <input type="text" name="productName"
-							value="${product.name}" class="base-text"> <span
-							class="error"><c:if test="${not empty nameErrMsg}">
-								<span>${fn:escapeXml(nameErrMsg)}</span>
-							</c:if></span>
+						<label><fmt:message key="form.lbl.productName" /></label>
+						<form:input type="text" path="productName" class="base-text"
+							value="${product.productName}" />
+						<c:if test="${not empty nameErrMsg}">
+							<span>${fn:escapeXml(nameErrMsg)}</span>
+						</c:if>
+						</span>
 					</div>
 					<div>
-						<label>単価</label> <input type="text" name="price"
-							value="${product.price}" class="base-text"> <span
-							class="error"><c:if test="${not empty priceErrMsg}">
-								<span>${fn:escapeXml(priceErrMsg)}</span>
-							</c:if></span>
+						<label><fmt:message key="form.lbl.price" /></label>
+						<form:input type="text" path="price" class="base-text"
+							value="${product.price}" />
+						<c:if test="${not empty priceErrMsg}">
+							<span>${fn:escapeXml(priceErrMsg)}</span>
+						</c:if>
+						</span>
 					</div>
 					<div>
-						<label>カテゴリ</label> <select name="category_id" class="base-text">
-							<option value="1" selected>ペン</option>
-							<option value="2">ノート</option>
-							<option value="3">消しゴム</option>
-							<option value="4">のり</option>
-						</select>
+						<label><fmt:message key="form.lbl.category" /></label>
+						<form:select path="categoryId" class="base-text">
+							<form:options items="${categoryList}" itemLabel="categoryName"
+								itemValue="categoryId" />
+						</form:select>
 					</div>
 					<div>
-						<label>商品説明</label>
-						<textarea name="description" class="base-text">
-						${product.description}
-            </textarea>
+						<label><fmt:message key="form.lbl.description" /></label>
+						<form:textarea path="description" class="base-text" value="${product.description}"></form:textarea>
 					</div>
 					<div>
 						<label>画像</label> <input type="file" name="file"> <span
@@ -88,7 +92,7 @@
 						<button type="button" onclick="closeModal()" class="cancel_btn">キャンセル</button>
 					</div>
 				</div>
-			</form>
+			</form:form>
 		</div>
 	</div>
 	<div id="fadeLayer"></div>

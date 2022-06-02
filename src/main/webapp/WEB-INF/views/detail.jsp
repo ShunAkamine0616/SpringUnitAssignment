@@ -74,7 +74,7 @@
 							<input type="button" onclick="openModal()" value="削除"
 								class="basic_btn" name="btn">
 							<input type="button"
-								onclick="location.href='./UpdateInputServlet?productId=${product.getProductId()}'"
+								onclick="location.href='./updateInput'"
 								value="編集" class="basic_btn" name="btn">
 						</c:if>
 						<input type="button" onclick="location.href='back'"
