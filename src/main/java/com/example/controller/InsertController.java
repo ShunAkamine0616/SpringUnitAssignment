@@ -61,7 +61,7 @@ public class InsertController {
 				insertform.getProductName(), insertform.getPrice(), insertform.getDescription(), timestamp);
 
 		productService.insert(product);
-		
+		session.setAttribute("successMsg", "登録が完了しました");
 		return "menu";
 	}
 }

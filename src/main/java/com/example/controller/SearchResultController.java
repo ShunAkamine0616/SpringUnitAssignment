@@ -37,7 +37,7 @@ public class SearchResultController {
 		} else {
 			productList = productService.findByKeyword(keyword, "product_id");
 			//		categoryList = cService.findByKeyword(keyword);
-			if(productList.size() == 0) {
+			if(productList == null) {
 				model.addAttribute("successMsg", "検索条件と十分に一致する結果が見つかりません");
 			} else {
 				//			model.removeAttribute("successMsg");
@@ -55,7 +55,7 @@ public class SearchResultController {
 		System.out.println("keyword = " + keyword);
 		productList = productService.findByKeyword(keyword, sort);
 		//		categoryList = cService.findByKeyword(keyword);
-		if(productList.size() == 0) {
+		if(productList == null) {
 			model.addAttribute("successMsg", "検索条件と十分に一致する結果が見つかりません");
 		} else {
 			//			model.removeAttribute("successMsg");

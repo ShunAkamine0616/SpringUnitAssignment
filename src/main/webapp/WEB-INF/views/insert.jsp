@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>商品登録</title>
+<title><fmt:message key="page.insert.title" /></title>
 <link href="css/commons.css" rel="stylesheet">
 
 </head>
@@ -16,10 +16,10 @@
 
 	<div class="header">
 		<h1 class="site_logo">
-			<a href="menu.jsp">商品管理システム</a>
+			<a href="menu.jsp"><fmt:message key="site_logo" /></a>
 		</h1>
 		<div class="user">
-			<p class="user_name">佐藤さん、こんにちは</p>
+			<p class="user_name">${user.name}さん、こんにちは</p>
 			<form class="logout_form" action="logout" method="get">
 				<button class="logout_btn" type="submit">
 					<img src="images/ドアアイコン.png">ログアウト
@@ -51,27 +51,23 @@
 								key="form.lbl.productId" /></label>
 						<form:input type="text" path="productId" class="base-text"
 							value="${productId}" />
-						<span class="error"> <c:if test="${not empty idErrMsg}">
-								<span>${fn:escapeXml(idErrMsg)}</span>
-							</c:if>
-						</span>
+						<span class="error"><form:errors path="productId"
+								cssStyle="color: red" /> </span>
 					</div>
 					<div>
 						<label class="required"><fmt:message
 								key="form.lbl.productName" /></label>
 						<form:input type="text" path="productName" class="base-text"
 							value="${productName}" />
-						<span class="error"><c:if test="${not empty nameErrMsg}">
-								<span>${fn:escapeXml(nameErrMsg)}</span>
-							</c:if></span>
+						<span class="error"><form:errors path="productName"
+								cssStyle="color: red" /></span>
 					</div>
 					<div>
 						<label class="required"><fmt:message key="form.lbl.price" /></label>
 						<form:input type="text" path="price" class="base-text"
 							value="${price}" />
-						<span class="error"><c:if test="${not empty priceErrMsg}">
-								<span>${fn:escapeXml(priceErrMsg)}</span>
-							</c:if></span>
+						<span class="error"><form:errors path="price"
+								cssStyle="color: red" /></span>
 					</div>
 					<div class="select_block">
 						<label class="required"><fmt:message
@@ -93,16 +89,25 @@
 					<!-- 					</div> -->
 				</fieldset>
 				<div class="btns">
-					<button type="button" onclick="openModal()"  name="insert" class="basic_btn">登録</button>
-					<input type="button" onclick="location.href='back'"
-						value="戻る" class="cancel_btn">
+					<button type="button" onclick="openModal()" name="insert"
+						class="basic_btn">
+						<fmt:message key="btn.insert" />
+					</button>
+					<input type="button" onclick="location.href='back'" value="戻る"
+						class="cancel_btn">
 				</div>
 				<div id="modal">
-					<p class="modal_message">登録しますか？</p>
+					<p class="modal_message">
+						<fmt:message key="modal.message.insert" />
+					</p>
 					<div class="btns">
-						<form:button type="submit" name="insert" class="basic_btn">登録</form:button>
+						<form:button type="submit" name="insert" class="basic_btn">
+							<fmt:message key="btn.insert" />
+						</form:button>
 						<button type="button" name="cancel" onclick="closeModal()"
-							class="cancel_btn">キャンセル</button>
+							class="cancel_btn">
+							<fmt:message key="btn.cancel" />
+						</button>
 					</div>
 				</div>
 			</form:form>

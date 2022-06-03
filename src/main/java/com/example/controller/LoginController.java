@@ -69,4 +69,9 @@ public class LoginController {
 		System.out.println("aaaaaaaa");
 		return "menu";
 	}
+	
+	@RequestMapping("login")
+	public String menu(@ModelAttribute("index") LoginForm loginform, Model model) {
+		return "menu";
+	}
 }

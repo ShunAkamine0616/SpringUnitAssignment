@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <c:if test="${empty user}">
-	<meta http-equiv="Refresh" content="2;URL=index.jsp">
+	<meta http-equiv="Refresh" content="0;URL=index">
 </c:if>
 <title>メニュー</title>
 <link href="css/commons.css" rel="stylesheet">

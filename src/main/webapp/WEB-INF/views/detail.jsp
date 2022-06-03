@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
@@ -17,8 +19,8 @@
 			<a href="menu.jsp">商品管理システム</a>
 		</h1>
 		<div class="user">
-			<p class="user_name">佐藤さん、こんにちは</p>
-			<form class="logout_form" action="Logout" method="get">
+			<p class="user_name">${user.name}さん、こんにちは</p>
+			<form class="logout_form" action="logout" method="get">
 				<button class="logout_btn" type="submit">
 					<img src="images/ドアアイコン.png">ログアウト
 				</button>
@@ -42,23 +44,28 @@
 						</c:if>
 					</p>
 					<div>
-						<label>商品ID</label> <input type="text" name="productId"
+						<label><fmt:message
+								key="form.lbl.productId" /></label> <input type="text" name="productId"
 							value="${product.productId}" readonly class="base-text">
 					</div>
 					<div>
-						<label>商品名</label> <input type="text" name="productName"
+						<label><fmt:message
+								key="form.lbl.productName" /></label> <input type="text" name="productName"
 							value="${product.name}" readonly class="base-text">
 					</div>
 					<div>
-						<label>単価</label> <input type="text" name="price"
+						<label><fmt:message
+								key="form.lbl.price" /></label> <input type="text" name="price"
 							value="${product.price}" readonly class="base-text">
 					</div>
 					<div>
-						<label>カテゴリ</label> <input type="text" name="category"
+						<label><fmt:message
+								key="form.lbl.category" /></label> <input type="text" name="category"
 							value="${product.category.categoryName}" readonly class="base-text">
 					</div>
 					<div>
-						<label>商品説明</label>
+						<label><fmt:message
+								key="form.lbl.description" /></label>
 						<textarea name="description" readonly class="base-text"
 							style="background-color: rgb(209, 209, 209);">
             ${product.getDescription()}
@@ -83,7 +90,7 @@
 					<div id="modal">
 						<p class="modal_message">削除しますか？</p>
 						<div class="btns">
-							<button type="submit" class="basic_btn">削除</button>
+							<button type="submit" class="basic_btn"><fmt:message key="btn.delete" /></button>
 							<button type="button" onclick="closeModal()" class="cancel_btn">キャンセル</button>
 						</div>
 					</div>
