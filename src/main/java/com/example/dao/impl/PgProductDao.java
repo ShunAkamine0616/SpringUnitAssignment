@@ -75,7 +75,7 @@ public class PgProductDao implements ProductDao {
         return resultList.isEmpty() ? null : resultList;
 	}
 
-	public void update(Integer product_id, Product product) {
+	public int update(Integer product_id, Product product) {
 		 String sql = SQL_UPDATE_PRODUCT;
 	        MapSqlParameterSource param = new MapSqlParameterSource();
 	        param.addValue("product_id", product.getProductId());
@@ -85,7 +85,8 @@ public class PgProductDao implements ProductDao {
 	        param.addValue("description", product.getDescription());
 	        param.addValue("updated_at", product.getCreatedAt());
 	        param.addValue("id", product_id);
-	        jdbcTemplate.update(sql, param);
+	        return jdbcTemplate.update(sql, param);
+//	        return 0; //更新失敗時のチェックのため
 	}
 
 	public int delete(Integer product_id) {
@@ -93,6 +94,7 @@ public class PgProductDao implements ProductDao {
 	        MapSqlParameterSource param = new MapSqlParameterSource();
 	        param.addValue("product_id", product_id);
 	        return jdbcTemplate.update(sql, param);
+//	        return 0; //更新失敗時のチェックのため
 	}
 
 	public void register(Product product) {

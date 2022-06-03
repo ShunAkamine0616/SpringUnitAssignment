@@ -73,7 +73,12 @@ public class UpdateController {
 		}
 
 		try {
-			productService.update(oldProduct.getProductId(), product);
+			int recordNum = productService.update(oldProduct.getProductId(), product);
+			if(recordNum == 0) {
+				session.setAttribute("updateErrMsg", "更新時にエラーが発生しました");
+				return "updateInput";
+			}
+			
 		} catch(Exception e) {
 			session.setAttribute("updateErrMsg", "更新時にエラーが発生しました");
 			return "updateInput";

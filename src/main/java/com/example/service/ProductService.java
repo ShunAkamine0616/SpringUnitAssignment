@@ -10,6 +10,6 @@ public interface ProductService {
     public List<Product> findAll(String sort);
     public List<Product> findByKeyword(String keyword, String sort);
     public void insert(Product product);
-    public void update(Integer product_id, Product product);
+    public int update(Integer product_id, Product product);
     public int delete(Integer product_id);
 }
